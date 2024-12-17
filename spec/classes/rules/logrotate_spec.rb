@@ -36,6 +36,9 @@ describe 'cis_security_hardening::rules::logrotate' do
                   'rotate'       => 7,
                   'rotate_every' => 'week',
                   'ifempty'      => true,
+                  'su'           => false,
+                  'su_user'      => 'root',
+                  'su_group'     => 'syslog',
                 },
               )
 
