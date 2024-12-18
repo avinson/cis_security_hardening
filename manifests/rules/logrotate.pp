@@ -35,28 +35,30 @@
 #
 # @api private
 class cis_security_hardening::rules::logrotate (
-  Boolean $enforce      = false,
-  Boolean $dateext      = true,
-  Boolean $compress     = true,
-  Integer $rotate       = 7,
-  String $rotate_every  = 'week',
-  Boolean $ifempty      = true,
-  Boolean $su           = false,
-  String $su_user       = 'root',
-  String $su_group      = 'syslog',
+  Boolean $enforce       = false,
+  Boolean $dateext       = true,
+  Boolean $compress      = true,
+  Boolean $delaycompress = true,
+  Integer $rotate        = 7,
+  String $rotate_every   = 'week',
+  Boolean $ifempty       = true,
+  Boolean $su            = false,
+  String $su_user        = 'root',
+  String $su_group       = 'syslog',
 ) {
   if $enforce {
     class { 'logrotate':
       create_base_rules => false,
       config            => {
-        dateext      => $dateext,
-        compress     => $compress,
-        rotate       => $rotate,
-        rotate_every => $rotate_every,
-        ifempty      => $ifempty,
-        su           => $su,
-        su_user      => $su_user,
-        su_group     => $su_group,
+        dateext       => $dateext,
+        compress      => $compress,
+        delaycompress => $delaycompress,
+        rotate        => $rotate,
+        rotate_every  => $rotate_every,
+        ifempty       => $ifempty,
+        su            => $su,
+        su_user       => $su_user,
+        su_group      => $su_group,
       },
     }
   }
