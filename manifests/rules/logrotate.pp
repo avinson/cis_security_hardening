@@ -15,6 +15,8 @@
 #    Use date extension for rotated files.
 # @param compress
 #    Compress rotated files.
+# @param delaycompress
+#    Delay compression of rotated files.
 # @param rotate
 #    Number of rotations to keep.
 # @param rotate_every
@@ -38,7 +40,7 @@ class cis_security_hardening::rules::logrotate (
   Boolean $enforce       = false,
   Boolean $dateext       = true,
   Boolean $compress      = true,
-  Boolean $delaycompress = true,
+  Boolean $delaycompress = false,
   Integer $rotate        = 7,
   String $rotate_every   = 'week',
   Boolean $ifempty       = true,

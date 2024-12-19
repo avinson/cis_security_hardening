@@ -33,7 +33,7 @@ describe 'cis_security_hardening::rules::logrotate' do
                 'config' => {
                   'dateext'       => true,
                   'compress'      => true,
-                  'delaycompress' => true,
+                  'delaycompress' => false,
                   'rotate'        => 7,
                   'rotate_every'  => 'week',
                   'ifempty'       => true,
